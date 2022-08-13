@@ -7,15 +7,18 @@ import Store from './components/Store';
 
 // Context
 import ProductContextProvider from './context/ProductContextProvider';
+import CartContextProvider from './context/CartContextProvider';
 
 const App = () => {
   return (
     <ProductContextProvider>
-      <Routes>
-        <Route path='/products' element={<Store />} />
-        <Route path='/products/:id' element={<ProductDetails />} />
-        <Route path='/*' element={<Navigate to='/products' />} />
-      </Routes>
+      <CartContextProvider>
+        <Routes>
+          <Route path='/products' element={<Store />} />
+          <Route path='/products/:id' element={<ProductDetails />} />
+          <Route path='/*' element={<Navigate to='/products' />} />
+        </Routes>
+      </CartContextProvider>
     </ProductContextProvider>
   );
 };
