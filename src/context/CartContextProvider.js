@@ -8,8 +8,9 @@ const initialState = {
 }
 
 const cartReducer = (state, action) => {
-    switch(action.type) {
+    console.log(state);
 
+    switch(action.type) {
         case 'ADD_ITEM': 
             if (!state.selectedItems.find(item => item.id === action.payload.id)) {
                 state.selectedItems.push({
@@ -64,7 +65,7 @@ const cartReducer = (state, action) => {
     }
 }
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
 
